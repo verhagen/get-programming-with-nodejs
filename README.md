@@ -76,6 +76,26 @@ To remove all Vagrant boxes, first list the boxes and then remove them.
     vagrant box remove <name>
 
 
+## Adding the Code from the Books Lessons
+
+This will make the source code, as written by the author of the book [Jonathan Wexler](https://github.com/JonathanWexler), direct available in the virtual machine.
+
+On the host machine, goto the git project directory `get-programming-with-nodejs`. Inside this git project, clone the source code from the book, as git sub-module `exercise`:
+
+    git submodule add https://github.com/JonathanWexler/get-programming-with-nodejs.git exercise
+
+This will create a directory `exercise` which contains all the books units and lessons.
+
+Use `find` to see layout of the directory `exercise`
+
+    find exercise -maxdepth 2
+
+
+## Tools needed on local machine
+
+Some tools like a nice text editor [Atom](https://atom.io/) for JavaScript or [MongoDB Compass](https://docs.mongodb.com/compass/master/install/) for editing MongoDB content, are nice to have on your local (host) machine.
+
+
 ## Start Developing
 
 Once the virtual machine, created by Vagrant, is up, get inside it through `vagrant ssh` and goto the `/vagrant` directory. This directory is mounted from the host.
@@ -89,26 +109,14 @@ Inside the virtual machine one can run `npm`, `node` and others applications. Tr
     npm --version
     node --version
 
-
-### Adding the Code from the Books Lessons
-
-On the host machine, goto the git project directory `get-programming-with-nodejs`. Inside this git project, clone the source code from the book, as git sub-module `exercise`:
-
-    git submodule add https://github.com/JonathanWexler/get-programming-with-nodejs.git exercise
-
-This will create a directory `exercise` which contains all the books units and lessons.
-
-Use `find` to see layout of the directory `exercise`
-
-    find exercise -maxdepth 2
+Now start reading the book _Get Programming with Node.js_ or continue where you left off.
 
 
-**Port Forwarding**
+## Good to Know
 
-Node runs on port `3000`, which is made available to the host as well.
+Vagrant _Port Forwarding_ is used to make the ports used on the virtual machine available on the host as well.
 
-### Mongodb
-
-**Port Forwarding**
-
-Mongodb runs on port `27017`, which is made available to the host as well.
+Application | Guest port | Host port
+------------|------------|----------
+Node.js | 3000  | 3000
+MongoDB | 27017 | 27017
