@@ -4,7 +4,7 @@
 
 ## Introduction
 
-An nice and easy way to set up a Node.js development environment is by using a virtual machine. It's nice because no applications and tools, are installed on your local machine. It's easy because the virtual machine is created by a configuration file. This makes it easy to create the virtual machine when needed, but also easy to destroy it, once it is no longer needed.
+A nice and easy way to set up a Node.js development environment is by using a virtual machine. It's nice because no applications and tools, are installed on your local machine. It's easy because the virtual machine is created by a configuration file. This makes it easy to create the virtual machine when needed, but also easy to destroy it, once it is no longer needed.
 
 __Pros__
 - Works all the same on Windows, Linux, OS-X
