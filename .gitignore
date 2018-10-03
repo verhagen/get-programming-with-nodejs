@@ -1,0 +1,14 @@
+# Node npm configuration
+node_modules/
+package-lock.json
+npm-debug.log
+
+# OS-X
+.DS_Store
+
+# Vagrant machines
+*-cloudimg-console.log
+.vagrant/
+
+# General
+tmp/
