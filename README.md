@@ -1,5 +1,7 @@
 # Manning - [Get Programming with Node.js](https://www.manning.com/books/get-programming-with-node-js)
 
+This project creates a virtual machine, for setting up the development environment as used in the book _Get Programming with Node.js_.
+
 [![Get Programming with Node.js](image/Wexler_GetProg-nodejs_hiresmeap-w180.png)](https://www.manning.com/books/get-programming-with-node-js)
 
 ## Introduction
