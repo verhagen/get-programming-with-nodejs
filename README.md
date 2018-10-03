@@ -76,13 +76,26 @@ To remove all Vagrant boxes, first list the boxes and then remove them.
 
 ## Start Developing
 
-Once the virtual machine, created by vagrant, is up, get inside through `vagrant ssh` and goto the `/vagrant` directory. This directory is mounted from the host.
+Once the virtual machine, created by Vagrant, is up, get inside it through `vagrant ssh` and goto the `/vagrant` directory. This directory is mounted from the host.
 
 So all files created here or on the host machine will persist on the host machine. This makes it also possible to edit files on the host as well as on the guest.
 
 This mount points to the project directory `get-programming-with-nodejs` on the host.
 
-Inside the virtual machine one can run `npm`, `node` and others applications.
+Inside the virtual machine one can run `npm`, `node` and others applications. Try some commands like:
+
+    npm --version
+    node --version
+
+
+### Cloning the Books Lessons
+
+On the host machine, goto the git project directory `get-programming-with-nodejs`. Inside this git project, clone the source code from the book, as git sub-module `exercise`:
+
+    git submodule add https://github.com/JonathanWexler/get-programming-with-nodejs.git exercise
+
+This will create a directory `exercise` which contains all the books units and lessons.
+
 
 **Port Forwarding**
 
