@@ -90,13 +90,17 @@ Inside the virtual machine one can run `npm`, `node` and others applications. Tr
     node --version
 
 
-### Cloning the Books Lessons
+### Adding the Code from the Books Lessons
 
 On the host machine, goto the git project directory `get-programming-with-nodejs`. Inside this git project, clone the source code from the book, as git sub-module `exercise`:
 
     git submodule add https://github.com/JonathanWexler/get-programming-with-nodejs.git exercise
 
 This will create a directory `exercise` which contains all the books units and lessons.
+
+Use `find` to see layout of the directory `exercise`
+
+    find exercise -maxdepth 2
 
 
 **Port Forwarding**
