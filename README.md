@@ -2,57 +2,94 @@
 
 [![Get Programming with Node.js](image/Wexler_GetProg-nodejs_hiresmeap-w180.png)](https://www.manning.com/books/get-programming-with-node-js)
 
-## Run Node.js on Ubuntu through Vagrant
+## Introduction
 
-It is easy to set up a Node.js development server, through Vagrant. In this case the created Vagrant box is based on
-Ubuntu Xenial64 (v16.04) and uses VirtualBox to run the guest virtual machine.
+An nice and easy way to set up a Node.js development environment is by using a virtual machine. It's nice because no applications and tools, are installed on your local machine. It's easy because the virtual machine is created by a configuration file. This makes it easy to create the virtual machine when needed, but also easy to destroy it, once it is no longer needed.
+
+__Pros__
+- Works all the same on Windows, Linux, OS-X
+- No installation of applications and tools on your local machine
+- The virtual machine contains all the applications / tools as used in the book
+    - nodejs
+    - npm
+    - MongoDB
+
+__Cons__
+- Takes up more memory and cpu, then running things locally.
+- Takes up disk space, as long as the virtual machine exists.
+
+
+## Environment set up
+
+In case you don't have VirtaalBox or Vagrant, download and install these programs:
 
 - [VirtualBox](https://www.virtualbox.org/)
 - [Vagrant](https://www.vagrantup.com/intro/index.html)
 
-The `Vagrantfile` is based on the Vagrant box [`ubuntu/xenial64`](https://app.vagrantup.com/ubuntu/boxes/xenial64). It installs [Node Version Manager (nvm)](https://github.com/creationix/nvm). Then `nvm` is used to install [Node Package Manager (npm)](https://www.npmjs.com/) and [Node.js](https://nodejs.org/).
-At the top of the `Vagrantfile` the nvm version and node version are set.
+Clone this GitHub project, to get the Vagrant configuration file(s).
+
+    git clone https://github.com/verhagen/get-programming-with-nodejs.git
+
+> **Background**
+>
+> The Vagrant configuration file `Vagrantfile` is based on the Vagrant box [`ubuntu/xenial64`](https://app.vagrantup.com/ubuntu/boxes/xenial64). On this Ubuntu the [Node Version Manager (nvm)](https://github.com/creationix/nvm) is being installed. Then `nvm` is used to install [Node Package Manager (npm)](https://www.npmjs.com/) and [Node.js](https://nodejs.org/).
+>
+> At the top of the `Vagrantfile` the nvm version and node version are set.
 
 
 
-## Using the Vagrant box
+## Using the Virtual Machine
 
-Launch the vagrant box
+Vagrant uses the configuration file `Vagrantfile` to create a virtual machine. In this scenario it creates a VirtualBox
+virtual machine.
+
+Launch the virtual machine
 
     vagrant up
 
-> After some time not using the box it is possible to get a warning that a newer version of the vagrant box is available. Use the command `vagrant box update` to get the latest version of the used box, as mentioned in the `Vagrantfile`.
-
-
-Go into the vagrant box (guest) machine
+Go into the virtual machine (guest)
 
     vagrant ssh
 
-Inside the vagrant box, go to the shared directory which is Synchronized with this project directory.
+Inside the guest, go to the shared directory which is synchronized with the hosts project directory.
 
     cd /vagrant
 
-Leave the vagrant box (guest)
+Leave the virtual machine (guest)
 
     exit
 
-Halt the vagrant box, stops the VirtualBox machine. But keep it for quick relaunch.
+Stop the VirtualBox machine. But keep it for quick relaunch.
 
     vagrant halt
 
-Destroy the vagrant box, stops and removes the VirtualBox machine. Less disk space usage. Longer to launch again.
+Destroy the virtual machine. This stops and removes the virtual machine. Less disk space usage. Longer to launch again.
 
     vagrant destroy
 
+To remove all Vagrant boxes, first list the boxes and then remove them.
 
-## Development
+    vagrant box list
 
-Once the Vagrant box is launched, get inside through `vagrant ssh` and goto the `/vagrant` directory. This directory is mounted from the host, from where the Vagrant box was launched. So files can be edited on the host as well as on the guest system.
+    vagrant box remove <name>
 
-Running `npm`, `node` and others can now be done on the guest machine.
+
+## Start Developing
+
+Once the virtual machine, created by vagrant, is up, get inside through `vagrant ssh` and goto the `/vagrant` directory. This directory is mounted from the host.
+
+So all files created here or on the host machine will persist on the host machine. This makes it also possible to edit files on the host as well as on the guest.
+
+This mount points to the project directory `get-programming-with-nodejs` on the host.
+
+Inside the virtual machine one can run `npm`, `node` and others applications.
+
+**Port Forwarding**
 
 Node runs on port `3000`, which is made available to the host as well.
 
 ### Mongodb
+
+**Port Forwarding**
 
 Mongodb runs on port `27017`, which is made available to the host as well.
