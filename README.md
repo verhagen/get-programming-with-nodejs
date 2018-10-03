@@ -32,7 +32,7 @@ Clone this GitHub project, to get the Vagrant configuration file(s).
 
 > **Background**
 >
-> The Vagrant configuration file `Vagrantfile` is based on the Vagrant box [`ubuntu/xenial64`](https://app.vagrantup.com/ubuntu/boxes/xenial64). On this Ubuntu the [Node Version Manager (nvm)](https://github.com/creationix/nvm) is being installed. Then `nvm` is used to install [Node Package Manager (npm)](https://www.npmjs.com/) and [Node.js](https://nodejs.org/).
+> The Vagrant configuration file `Vagrantfile` is based on the Vagrant box [`ubuntu/bionic64`](https://app.vagrantup.com/ubuntu/boxes/bionic64). On this Ubuntu the [Node Version Manager (nvm)](https://github.com/creationix/nvm) is being installed. Then `nvm` is used to install [Node Package Manager (npm)](https://www.npmjs.com/) and [Node.js](https://nodejs.org/).
 >
 > At the top of the `Vagrantfile` the nvm version and node version are set.
 
