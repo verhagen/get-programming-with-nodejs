@@ -1,4 +1,4 @@
-<a href="http://promisesaplus.com/">
+<a href="https://www.manning.com/books/get-programming-with-node-js">
     <img src="image/Wexler_GetProg-nodejs_hiresmeap-w180.png" alt="Get Programming with Node.js"
          title="Get Programming with Node.js" align="right" />
 </a>
