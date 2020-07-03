@@ -1,6 +1,12 @@
+<a href="https://www.manning.com/books/get-programming-with-node-js">
+    <img src="image/Wexler_GetProg-nodejs_hiresmeap-w180.png" alt="Get Programming with Node.js"
+         title="Get Programming with Node.js" align="right" />
+</a>
+
 # Manning - [Get Programming with Node.js](https://www.manning.com/books/get-programming-with-node-js)
 
-[![Get Programming with Node.js](image/Wexler_GetProg-nodejs_hiresmeap-w180.png)](https://www.manning.com/books/get-programming-with-node-js)
+This project creates a virtual machine, for setting up the development environment as used in the book _Get Programming with Node.js_.
+
 
 ## Introduction
 
@@ -32,9 +38,23 @@ Clone this GitHub project, to get the Vagrant configuration file(s).
 
 > **Background**
 >
-> The Vagrant configuration file `Vagrantfile` is based on the Vagrant box [`ubuntu/bionic64`](https://app.vagrantup.com/ubuntu/boxes/bionic64). On this Ubuntu the [Node Version Manager (nvm)](https://github.com/creationix/nvm) is being installed. Then `nvm` is used to install [Node Package Manager (npm)](https://www.npmjs.com/) and [Node.js](https://nodejs.org/).
+> The Vagrant configuration file `Vagrantfile` is based on the Vagrant box [`ubuntu/bionic64`](https://app.vagrantup.com/ubuntu/boxes/xenial64) (LTS 18.04). On this Ubuntu the [Node Version Manager (nvm)](https://github.com/creationix/nvm) is being installed. Then `nvm` is used to install [Node Package Manager (npm)](https://www.npmjs.com/) and [Node.js](https://nodejs.org/).
 >
 > At the top of the `Vagrantfile` the nvm version and node version are set.
+
+### Looking for a different Ubuntu Version?
+
+There are multiple version of Ubuntu available. Clone this git repository with the specific tag. And create a locale branch based on that tag.
+
+- Ubuntu / Bionic64 (LTS 18.04)
+
+      git  clone  -b ubuntu/bionic64-LTS-18.04  https://github.com/verhagen/get-programming-with-nodejs.git
+      git  checkout  -b ubuntu/bionic64 ubuntu/bionic64-LTS-18.04
+
+- Ubuntu / Xenial64 (LTS 16.04)  
+
+      git  clone  -b ubuntu/xenial64-LTS-16.04  https://github.com/verhagen/get-programming-with-nodejs.git
+      git  checkout  -b ubuntu/xenial64 ubuntu/xenial64-LTS-16.04
 
 
 
@@ -74,22 +94,47 @@ To remove all Vagrant boxes, first list the boxes and then remove them.
     vagrant box remove <name>
 
 
+## Adding the Code from the Books Lessons
+
+This will make the source code, as written by the author of the book [Jonathan Wexler](https://github.com/JonathanWexler), direct available in the virtual machine.
+
+On the host machine, goto the git project directory `get-programming-with-nodejs`. Inside this git project, clone the source code from the book, as git sub-module `exercise`:
+
+    git submodule add https://github.com/JonathanWexler/get-programming-with-nodejs.git exercise
+
+This will create a directory `exercise` which contains all the books units and lessons.
+
+Use `find` to see layout of the directory `exercise`
+
+    find exercise -maxdepth 2
+
+
+## Tools needed on local machine
+
+Some tools like a nice text editor [Atom](https://atom.io/) for JavaScript or [MongoDB Compass](https://docs.mongodb.com/compass/master/install/) for editing MongoDB content, are nice to have on your local (host) machine.
+
+
 ## Start Developing
 
-Once the virtual machine, created by vagrant, is up, get inside through `vagrant ssh` and goto the `/vagrant` directory. This directory is mounted from the host.
+Once the virtual machine, created by Vagrant, is up, get inside it through `vagrant ssh` and goto the `/vagrant` directory. This directory is mounted from the host.
 
 So all files created here or on the host machine will persist on the host machine. This makes it also possible to edit files on the host as well as on the guest.
 
 This mount points to the project directory `get-programming-with-nodejs` on the host.
 
-Inside the virtual machine one can run `npm`, `node` and others applications.
+Inside the virtual machine one can run `npm`, `node` and others applications. Try some commands like:
 
-**Port Forwarding**
+    npm --version
+    node --version
 
-Node runs on port `3000`, which is made available to the host as well.
+Now start reading the book _Get Programming with Node.js_ or continue where you left off.
 
-### Mongodb
 
-**Port Forwarding**
+## Good to Know
 
-Mongodb runs on port `27017`, which is made available to the host as well.
+Vagrant _Port Forwarding_ is used to make the ports used on the virtual machine available on the host as well.
+
+Application | Guest port | Host port
+------------|------------|----------
+Node.js | 3000  | 3000
+MongoDB | 27017 | 27017
