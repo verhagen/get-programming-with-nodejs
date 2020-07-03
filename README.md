@@ -1,6 +1,6 @@
 <a href="http://promisesaplus.com/">
-    <img src="image/Wexler_GetProg-nodejs_hiresmeap-w180.png" alt="et Programming with Node.js"
-         title="et Programming with Node.js" align="right" />
+    <img src="image/Wexler_GetProg-nodejs_hiresmeap-w180.png" alt="Get Programming with Node.js"
+         title="Get Programming with Node.js" align="right" />
 </a>
 
 # Manning - [Get Programming with Node.js](https://www.manning.com/books/get-programming-with-node-js)
